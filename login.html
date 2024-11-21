@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Destinos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Formulario de Login -->
+    <div id="login-container" class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <form onsubmit="return validarUsuario()">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" required>
+
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" required>
+
+            <button type="submit">Ingresar</button>
+        </form>
+        <p id="error-message"></p>
+    </div>
+
+    <!-- Contenido Principal -->
+    <div id="main-container" class="main-container" style="display: none;">
+        <h1>Destinos Turísticos de Yucatán</h1>
+        <nav>
+            <button onclick="logout()">Cerrar sesión</button>
+        </nav>
+
+        <!-- Si es Admin, se mostrarán las opciones de agregar/editar/eliminar -->
+        <div id="admin-options" style="display: none;">
+            <h2>Administrar Destinos</h2>
+            <form id="add-destination-form" onsubmit="return agregarDestino()">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" required><br><br>
+
+                <label for="descripcion">Descripción:</label>
+                <input type="text" id="descripcion" required><br><br>
+
+                <label for="ubicacion">Ubicación:</label>
+                <input type="text" id="ubicacion" required><br><br>
+
+                <label for="precio_estimado">Precio Estimado:</label>
+                <input type="number" id="precio_estimado" required><br><br>
+
+                <button type="submit">Agregar Destino</button>
+            </form>
+        </div>
+
+        <div id="destinos-list">
+            <h2>Lista de Destinos</h2>
+            <ul id="destinos-ul">
+                <!-- Aquí se mostrarán los destinos -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
